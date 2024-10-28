@@ -1,0 +1,31 @@
+﻿<Window x:Class="ControlApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Control App" Height="200" Width="300">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Name="CameraButton" Content="Камера" Width="200" Height="40" Click="CameraButton_Click" Margin="0,0,0,10"/>
+            <Button Name="PusherButton" Content="Толкатель" Width="200" Height="40" Click="PusherButton_Click" Margin="0,0,0,10"/>
+
+            <ToggleButton Name="ProductSwitch" Width="200" Height="30" Margin="0,0,0,10">
+                <ToggleButton.Template>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Grid Width="100" Height="30">
+                            <Border x:Name="Border" CornerRadius="15" Background="LightGray" />
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="TextBlock" Text="Годный" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Ellipse x:Name="SwitchThumb" Width="28" Height="28" Fill="White" HorizontalAlignment="Left" Margin="1,1,0,1"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="SwitchThumb" Property="HorizontalAlignment" Value="Right"/>
+                                <Setter TargetName="Border" Property="Background" Value="DarkGray"/>
+                                <Setter TargetName="TextBlock" Property="Text" Value="Брак"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </ToggleButton.Template>
+            </ToggleButton>
+        </StackPanel>
+    </Grid>
+</Window>
